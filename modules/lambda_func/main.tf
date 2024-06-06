@@ -72,7 +72,7 @@ resource "aws_lambda_function" "lambda_func" {
   filename      = "${path.module}/python/lambda_code.zip"
   function_name = "get_parking_vacancy"
   role          = aws_iam_role.lambda_iam_role.arn
-  handler       = "${path.module}/handler/get_parking_vacancy.handler"
+  handler       = "get_parking_vacancy.handler"
   runtime       = "python3.11"
   architectures = ["arm64"]
   timeout       = 300
