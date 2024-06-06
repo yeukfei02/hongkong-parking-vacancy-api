@@ -2,9 +2,9 @@
 
 hongkong-parking-vacancy-api
 
-documentation: <>
+documentation: <https://documenter.getpostman.com/view/3827865/2sA3Qzb8us>
 
-api url: <>
+api url: <https://pkcdw9yya6.execute-api.ap-southeast-1.amazonaws.com/prod/get_parking_vacancy>
 
 ## Requirement
 
