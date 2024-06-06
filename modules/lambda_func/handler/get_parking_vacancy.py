@@ -1,3 +1,4 @@
+import json
 from request.get_parking_vacancy_api import get_parking_vacancy_api
 
 
@@ -10,20 +11,32 @@ def handler(event, context):
     }
 
     params = {
-        "data": "info"
+        "data": "info",
+        "lang": "zh_TW"
     }
 
-    query_param = event.get("queryStringParameters")
-    if query_param:
-        lang = query_param.get("lang") or "zh_TW"
+    if event:
+        data = event.get("data")
+        if data:
+            params["data"] = data
+
+        vehicle_types = event.get("vehicle_types")
+        if vehicle_types:
+            params["vehicle_types"] = vehicle_types
+
+        carpark_ids = event.get("carpark_ids")
+        if carpark_ids:
+            params["carpark_ids"] = carpark_ids
+
+        lang = event.get("lang")
         if lang:
             params["lang"] = lang
 
-    data = get_parking_vacancy_api(params)
+    parking_vacancy_result = get_parking_vacancy_api(params)
 
     response = {
         "message": "get_parking_vacancy_api",
-        "result": data or []
+        "result": parking_vacancy_result or []
     }
 
     return response
