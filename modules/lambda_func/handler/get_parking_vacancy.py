@@ -1,4 +1,3 @@
-import json
 from request.get_parking_vacancy_api import get_parking_vacancy_api
 
 
@@ -7,14 +6,7 @@ def handler(event, context):
     print(f"context = {context}")
 
     response = {
-        "statusCode": 200,
-        "headers": {
-            "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Credentials": True
-        },
-        "body": json.dumps({
-            "message": "get_parking_vacancy_api"
-        })
+        "message": "get_parking_vacancy_api"
     }
 
     params = {
@@ -30,15 +22,8 @@ def handler(event, context):
     data = get_parking_vacancy_api(params)
 
     response = {
-        "statusCode": 200,
-        "headers": {
-            "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Credentials": True
-        },
-        "body": json.dumps({
-            "message": "get_parking_vacancy_api",
-            "result": data or []
-        })
+        "message": "get_parking_vacancy_api",
+        "result": data or []
     }
 
     return response
