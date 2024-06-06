@@ -1,4 +1,3 @@
-import json
 from request.get_parking_vacancy_api import get_parking_vacancy_api
 
 
