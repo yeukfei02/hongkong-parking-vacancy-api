@@ -6,6 +6,7 @@ def get_parking_vacancy_api(params):
 
     try:
         root_url = "https://api.data.gov.hk/v1/carpark-info-vacancy"
+
         response = requests.get(root_url, params=params)
         print(f"response = {response}")
 
