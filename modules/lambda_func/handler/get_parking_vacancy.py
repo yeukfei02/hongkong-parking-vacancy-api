@@ -7,39 +7,38 @@ def handler(event, context):
     print(f"context = {context}")
 
     response = {
-        'statusCode': 200,
-        'headers': {
+        "statusCode": 200,
+        "headers": {
             "Access-Control-Allow-Origin": "*",
             "Access-Control-Allow-Credentials": True
         },
-        'body': json.dumps({
+        "body": json.dumps({
             "message": "get_parking_vacancy_api"
         })
     }
 
-    if event:
-        query_param = event.get("queryStringParameters")
-        if query_param:
-            params = {
-                "data": "info"
-            }
+    params = {
+        "data": "info"
+    }
 
-            lang = query_param.get("lang") or "zh_TW"
-            if lang:
-                params["lang"] = lang
+    query_param = event.get("queryStringParameters")
+    if query_param:
+        lang = query_param.get("lang") or "zh_TW"
+        if lang:
+            params["lang"] = lang
 
-            data = get_parking_vacancy_api(params)
+    data = get_parking_vacancy_api(params)
 
-            response = {
-                'statusCode': 200,
-                'headers': {
-                    "Access-Control-Allow-Origin": "*",
-                    "Access-Control-Allow-Credentials": True
-                },
-                'body': json.dumps({
-                    "message": "get_parking_vacancy_api",
-                    "result": data or []
-                })
-            }
+    response = {
+        "statusCode": 200,
+        "headers": {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Credentials": True
+        },
+        "body": json.dumps({
+            "message": "get_parking_vacancy_api",
+            "result": data or []
+        })
+    }
 
     return response
