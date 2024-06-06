@@ -1,5 +1,5 @@
 import json
-from modules.lambda_func.request.get_parking_vacancy_api import get_parking_vacancy_api
+from request.get_parking_vacancy_api import get_parking_vacancy_api
 
 
 def handler(event, context):
