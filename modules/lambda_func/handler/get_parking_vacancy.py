@@ -6,10 +6,6 @@ def handler(event, context):
     print(f"event = {event}")
     print(f"context = {context}")
 
-    response = {
-        "message": "get_parking_vacancy_api"
-    }
-
     params = {
         "data": "info",
         "lang": "zh_TW"
