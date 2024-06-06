@@ -61,7 +61,7 @@ data "archive_file" "zip_lambda_layer_code" {
 
 # lambda layer
 resource "aws_lambda_layer_version" "lambda_layer" {
-  filename                 = "${path.module}/lambda_layer/lambda_layer_code.zip"
+  filename                 = "${path.module}/handler/lambda_layer/lambda_layer_code.zip"
   layer_name               = "get_parking_vacancy_lambda_layer"
   compatible_runtimes      = ["python3.11"]
   compatible_architectures = ["arm64"]
