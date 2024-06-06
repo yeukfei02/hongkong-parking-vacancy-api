@@ -14,7 +14,8 @@ def get_parking_vacancy_api(params):
             print(f"response_json = {response_json}")
 
             if response_json:
-                result = response_json
+                results_list = response_json.get("results")
+                result = results_list
     except Exception as e:
         print(f"get_parking_vacancy_api error = {e}")
 

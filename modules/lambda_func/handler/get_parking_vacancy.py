@@ -25,8 +25,8 @@ def handler(event, context):
             }
 
             lang = query_param.get("lang") or "zh_TW"
-
-            params["lang"] = lang
+            if lang:
+                params["lang"] = lang
 
             data = get_parking_vacancy_api(params)
 
